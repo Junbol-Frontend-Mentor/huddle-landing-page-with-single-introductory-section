@@ -25,8 +25,8 @@ This is a solution to the [Huddle landing page with single introductory section 
 
 ### Links
 
-- Solution URL: (https://github.com/Junbol-Frontend-Mentor/profile-card-component)
-- Live Site URL: (https://junbol-frontend-mentor.github.io/profile-card-component/)
+- Solution URL: (https://github.com/Junbol-Frontend-Mentor/huddle-landingpage-with-single-introductory-section)
+- Live Site URL: (https://junbol-frontend-mentor.github.io/huddle-landingpage-with-single-introductory-section/)
 
 ## My process
 
