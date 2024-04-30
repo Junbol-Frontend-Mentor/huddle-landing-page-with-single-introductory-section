@@ -30,6 +30,8 @@ body {
   margin-bottom: 2rem;
 }
 .wrapperNav .wrapperLogo {
+  width: 90%;
+  padding-right: 1.5rem;
   position: relative;
 }
 .wrapperNav .wrapperLogo:hover .wrapperLogo__img {
@@ -41,6 +43,7 @@ body {
 }
 .wrapperNav .wrapperLogo__img {
   width: 100%; /* Adjusted size */
+  margin-rigth: 30px;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 .wrapperNav .wrapperLogo__text {
@@ -193,7 +196,7 @@ footer .attribution a {
 
 @media (min-width: 450px) {
   .wrapperNav {
-    width: 100%;
+    width: 400px;
     display: flex;
     justify-content: left;
     margin-left: 2rem;

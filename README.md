@@ -1,6 +1,6 @@
-# Frontend Mentor - Profile card component solution
+# Frontend Mentor - Huddle landing page with single introductory section solution
 
-This is a solution to the [Profile card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/profile-card-component-cfArpWshJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Huddle landing page with single introductory section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/huddle-landing-page-with-a-single-introductory-section-B_2Wvxgi0). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -43,21 +43,42 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 
 ### What I learned
 
-Working with SCSS Grid & MediaQueries
+Working with SCSS, BEM & MediaQueries
 
 ```
-.container {
-  flex: 1 0 auto;
 
-  margin: 0 auto; /* This centers the container horizontally */
-}
+  .wrapperLogo {
+    position: relative;
 
+    &:hover {
+      .wrapperLogo__img {
+        //🚩 you cannot use & becasue its parent will be hover
+        opacity: 0; /* Fade out the logo */
+        transform: translateY(-20px); /* Move the logo up */
+      }
 
- &:hover {
-      // Correct hover syntax using &
-      transform: rotate(360deg); /* Completes a full circle */
+      .wrapperLogo__text {
+        opacity: 1; /* Fade in the text */
+      }
     }
-Sass(SCSS)  +   BEM (Block.Element.Modifier)
+
+    &__img {
+      width: 100%; /* Adjusted size */
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    &__text {
+      @include typography('Poppins', 700, 3rem, 1.2, color('white'));
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0; /* Initially hidden */
+      font-weight: 800;
+      transition: opacity 2s ease-in-out; /* Only opacity transition */
+    }
+  }
+}
 
 ```
 
