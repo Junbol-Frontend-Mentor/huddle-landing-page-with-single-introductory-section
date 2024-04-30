@@ -1,0 +1,328 @@
+// Importing Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+//------GENERAL SETTINGS -------------------------------
+
+// Universal reset also explicitly to all pseudo-elements
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Define color variables
+$colors: (
+  /*Primary*/ 'violet': hsl(257, 40%, 49%),
+  /*Primary*/ 'light-violet': hsl(257, 71%, 70%),
+  /*Primary*/ 'soft-magenta': hsl(300, 69%, 71%),
+  /*Neutral*/ 'white': hsl(0, 0%, 100%),
+  /*Neutral*/ 'black': hsl(0, 0%, 0%)
+);
+
+// Function to retrieve colors
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+// Typography Mixin with parameters
+@mixin typography($font-family, $weight, $size, $line-height, $color) {
+  font-family: $font-family, sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  color: $color;
+}
+
+/* QUERY FOR MOBILE FIRST*/
+html,
+body {
+  width: 100%;
+  height: 95vh;
+  background-image: url(../assets/images/bg-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: color('violet');
+}
+
+.wrapperNav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  .wrapperLogo {
+    position: relative;
+
+    &:hover {
+      .wrapperLogo__img {
+        //🚩 you cannot use & becasue its parent will be hover
+        opacity: 0; /* Fade out the logo */
+        transform: translateY(-20px); /* Move the logo up */
+      }
+
+      .wrapperLogo__text {
+        opacity: 1; /* Fade in the text */
+      }
+    }
+
+    &__img {
+      width: 100%; /* Adjusted size */
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    &__text {
+      @include typography('Poppins', 700, 3rem, 1.2, color('white'));
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0; /* Initially hidden */
+      font-weight: 800;
+      transition: opacity 2s ease-in-out; /* Only opacity transition */
+    }
+  }
+}
+
+//------   MAIN CONTAINER    ----------------
+.container {
+  flex: 1 0 auto;
+  width: 90%;
+  height: 60vh; /* This sets the height relative to the viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  //background-color: crimson; // for testing
+
+  &__couple {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //background-color: hotpink;
+
+    &__bgTopImage {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &__img {
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    &__legend {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 4rem;
+
+      &__h1 {
+        margin: 1rem;
+        @include typography('Poppins', 700, 1.5rem, 1.2, color('white'));
+
+        &:hover {
+          color: color('soft-magenta');
+        }
+      }
+
+      &__p {
+        @include typography('Open Sans', 400, 1rem, 1.5, color('white'));
+      }
+
+      &__myButton {
+        width: 8rem; /* Initial width */
+        height: 4rem; /* Initial height */
+        min-width: 100px; /* Minimum width to maintain visibility */
+        min-height: 40px; /* Minimum height to maintain visibility */
+        border-radius: 25px;
+        border-style: none;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        transition: transform 0.5s ease;
+        @include typography('Poppins', 600, 1rem, 1.5, color('white'));
+        background-color: color('violet');
+
+        &:hover {
+          transform: scale(1.2);
+          cursor: pointer;
+          background-color: color('light-violet');
+        }
+
+        &--active {
+          background-color: color('soft-magenta');
+        }
+      }
+    }
+  }
+}
+
+//------   FOOTER    ----------------
+footer {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  //background-color: aqua;
+
+  .footerContainer {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //background-color: deepskyblue;
+
+    &__socialMedia {
+      width: 300px;
+      display: flex;
+      justify-content: center;
+      gap: 15px; // Adjusts spacing between icons
+      margin-bottom: 2rem;
+      //background-color: aquamarine;
+
+      &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px; // Set the size of the clickable area
+        height: 40px;
+        border: 2px solid white; // White border
+        border-radius: 50%; // Circular border
+        color: white; // Icon color
+        text-decoration: none; // Removes underline from links
+        transition: transform 0.5s ease;
+
+        &:hover {
+          color: color('soft-magenta'); // Light grey on hover
+          border-color: #ccc; // Border color matches hover color
+          transform: scale(1.2);
+        }
+
+        i {
+          font-size: 20px; // Icon size
+        }
+      }
+    }
+  }
+  .attribution {
+    text-align: center;
+    margin-bottom: 2rem; /* Keeps the footer at the bottom but only after all other content */
+    color: hsl(228, 90%, 80%);
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+//------   MEDIA QUERY   ----------------
+@media (min-width: 450px) {
+  .wrapperNav {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-left: 2rem;
+  }
+
+  /*  .container {
+    flex-direction: row;
+    &__couple {
+      display: flex;
+      flex-direction: row;
+    }
+  } */
+
+  //------   MAIN CONTAINER    ----------------
+  .container {
+    display: flex;
+    flex-direction: row; //🚩
+
+    &__couple {
+      width: 100%;
+      display: flex;
+      flex-direction: row; //🚩
+      align-items: center;
+      //background-color: hotpink;
+
+      &__bgTopImage {
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      &__legend {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 4rem;
+
+        &__h1 {
+          margin: 1rem;
+          @include typography('Poppins', 700, 2rem, 1.2, color('white'));
+
+          &:hover {
+            color: color('soft-magenta');
+          }
+        }
+
+        &__p {
+          @include typography('Open Sans', 400, 1.2rem, 1.5, color('white'));
+        }
+
+        &__myButton {
+          width: 8rem; /* Initial width */
+          height: 4rem; /* Initial height */
+          min-width: 100px; /* Minimum width to maintain visibility */
+          min-height: 40px; /* Minimum height to maintain visibility */
+          border-radius: 25px;
+          border-style: none;
+          margin-top: 4rem;
+          margin-bottom: 2rem;
+          transition: transform 0.5s ease;
+          @include typography('Poppins', 600, 1rem, 1.5, color('white'));
+          background-color: color('violet');
+
+          &:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+            background-color: color('light-violet');
+          }
+
+          &--active {
+            background-color: color('soft-magenta');
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    .footerContainer {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+}
