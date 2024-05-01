@@ -43,7 +43,7 @@ This is a solution to the [Huddle landing page with single introductory section 
 
 ### What I learned
 
-Working with SCSS, BEM & MediaQueries
+Working with SCSS animations, BEM & MediaQueries
 
 ```
 
@@ -78,8 +78,8 @@ Working with SCSS, BEM & MediaQueries
       transition: opacity 2s ease-in-out; /* Only opacity transition */
     }
   }
-}
 
+And if you want to see the animation go and take a look at it, use it if you want. I just liked what Josh in https://www.joshwcomeau.com/ did probably in React study the code and try to replicate it.
 ```
 
 ### Continued development
