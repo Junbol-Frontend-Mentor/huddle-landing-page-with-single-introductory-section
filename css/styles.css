@@ -64,16 +64,6 @@ body {
     left: -120px;
   }
 }
-/* @keyframes slideRight {
-  0% {
-    left: -60px; /* Start from the left 
-  }
-  100% {
-    opacity: 0.3;
-    left: 2px; /* Move to the right 
-transform: rotate(45deg);  Rotate 45 degrees to the right 
-  }
-} */
 .wrapperNav {
   width: 100%;
   display: flex;
@@ -210,9 +200,11 @@ footer .footerContainer {
   align-items: center;
 }
 footer .footerContainer__socialMedia {
-  width: 300px;
+  width: 250px;
+  height: 60px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 15px;
   margin-bottom: 2rem;
 }
